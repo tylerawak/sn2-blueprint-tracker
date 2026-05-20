@@ -32,14 +32,11 @@
   <text x="600" y="368" font-family="Arial, sans-serif" font-size="26" fill="#7ecfdf" text-anchor="middle" letter-spacing="2">Subnautica 2 Crafting Companion — Free, No Account Needed</text>
 
   <!-- Feature pills -->
-  <rect x="248" y="416" width="192" height="38" rx="19" fill="#1de9b619" stroke="#1de9b6" stroke-opacity="0.35" stroke-width="1"/>
-  <text x="344" y="440" font-family="Arial, sans-serif" font-size="17" fill="#1de9b6" text-anchor="middle">Browse Blueprints</text>
+  <rect x="408" y="416" width="192" height="38" rx="19" fill="#1de9b619" stroke="#1de9b6" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="504" y="440" font-family="Arial, sans-serif" font-size="17" fill="#1de9b6" text-anchor="middle">Browse Blueprints</text>
 
-  <rect x="504" y="416" width="192" height="38" rx="19" fill="#1de9b619" stroke="#1de9b6" stroke-opacity="0.35" stroke-width="1"/>
-  <text x="600" y="440" font-family="Arial, sans-serif" font-size="17" fill="#1de9b6" text-anchor="middle">Track Ingredients</text>
-
-  <rect x="760" y="416" width="192" height="38" rx="19" fill="#1de9b619" stroke="#1de9b6" stroke-opacity="0.35" stroke-width="1"/>
-  <text x="856" y="440" font-family="Arial, sans-serif" font-size="17" fill="#1de9b6" text-anchor="middle">Mark as Crafted</text>
+  <rect x="620" y="416" width="192" height="38" rx="19" fill="#1de9b619" stroke="#1de9b6" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="716" y="440" font-family="Arial, sans-serif" font-size="17" fill="#1de9b6" text-anchor="middle">Track Ingredients</text>
 
   <!-- URL -->
   <text x="600" y="546" font-family="monospace" font-size="19" fill="#3a6878" text-anchor="middle" letter-spacing="1">sn2.tylerawak.net</text>
