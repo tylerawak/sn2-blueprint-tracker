@@ -228,7 +228,8 @@ const RECIPES = [
     name: 'Salvaged Titanium',
     station: 'Fabricator', category: 'Basic Materials',
     iconUrl: img('Titanium.png'), icon: '🪨',
-    description: 'Titanium extracted from salvaged metal debris.',
+    outputItem: 'Titanium', outputQty: 4,
+    description: 'Titanium extracted from salvaged metal debris. Yields 4× Titanium per craft.',
     ingredients: [
       { item: 'Metal Salvage', qty: 1 },
     ],
@@ -412,7 +413,8 @@ const RECIPES = [
     name: 'Sugar of Saturn',
     station: 'Fabricator', category: 'Prepared Meals',
     iconUrl: img('Sugar_of_Saturn.png'), icon: '🍬',
-    description: 'A sweet crystalline compound used in advanced food recipes.',
+    outputQty: 2,
+    description: 'A sweet crystalline compound used in advanced food recipes. Yields 2× per craft.',
     ingredients: [
       { item: 'Lead', qty: 1 },
       { item: 'Salt', qty: 1 },
@@ -423,7 +425,8 @@ const RECIPES = [
     name: 'Halfmoon Jerky',
     station: 'Fabricator', category: 'Prepared Meals',
     iconUrl: img('Halfmoon_Jerky.png'), icon: '🥩',
-    description: 'Dried and salted Halfmoon. Better food value than cooked.',
+    outputQty: 2,
+    description: 'Dried and salted Halfmoon. Better food value than cooked. Yields 2× per craft.',
     ingredients: [
       { item: 'Halfmoon', qty: 2 },
       { item: 'Salt', qty: 1 },
@@ -434,7 +437,8 @@ const RECIPES = [
     name: 'Threemoon Temaki',
     station: 'Fabricator', category: 'Prepared Meals',
     iconUrl: img('Threemoon_Temaki.png'), icon: '🍱',
-    description: 'A multi-fish roll. Restores both food and hydration.',
+    outputQty: 3,
+    description: 'A multi-fish roll. Restores both food and hydration. Yields 3× per craft.',
     ingredients: [
       { item: 'Halfmoon', qty: 1 },
       { item: 'Harvestmoon', qty: 1 },
@@ -617,7 +621,8 @@ const RECIPES = [
     name: 'Distraction Flare',
     station: 'Fabricator', category: 'Consumables',
     iconUrl: img('Distraction_Flare.png'), icon: '🔴',
-    description: 'A bright flare that distracts and repels nearby fauna.',
+    outputQty: 3,
+    description: 'A bright flare that distracts and repels nearby fauna. Yields 3× per craft.',
     ingredients: [
       { item: 'Titanium', qty: 1 },
       { item: 'Quartz', qty: 1 },
@@ -1149,10 +1154,10 @@ const RECIPES = [
     id: 'engine_efficiency',
     name: 'Engine Efficiency Module',
     station: 'Modification Station', category: 'Vehicle Upgrades',
-    iconUrl: img('Engine_Efficiency_Module.png'), icon: '⚡',
-    description: 'Reduces Tadpole power consumption.',
+    iconUrl: img('Engine_Efficiency.png'), icon: '⚡',
+    description: 'Reduces Tadpole power consumption. Stacks up to 4× for up to 80% reduction.',
     ingredients: [
-      { item: 'Titanium Ingot', qty: 1 },
+      { item: 'Titanium Ingot', qty: 2 },
       { item: 'Glass', qty: 2 },
       { item: 'System Chip', qty: 1 },
     ],

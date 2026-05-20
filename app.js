@@ -173,7 +173,9 @@ function craftItem(item, recipe) {
     if (remaining <= 0) delete state.inventory[ing.item];
     else state.inventory[ing.item] = remaining;
   });
-  state.inventory[recipe.name] = (state.inventory[recipe.name] || 0) + item.qty;
+  const outputName = recipe.outputItem || recipe.name;
+  const outputQty  = recipe.outputQty  || 1;
+  state.inventory[outputName] = (state.inventory[outputName] || 0) + item.qty * outputQty;
 }
 
 // ── Navigate to a recipe: switch station/category and select it ──
@@ -343,6 +345,16 @@ function renderRecipeDetail() {
     recipeDetailEl.appendChild(ingGrid);
   }
 
+  // Yields line (only when output differs from 1× self)
+  if (recipe.outputQty > 1 || recipe.outputItem) {
+    const yieldsEl = document.createElement('div');
+    yieldsEl.className = 'detail-yields';
+    const outputName = recipe.outputItem || recipe.name;
+    const outputQty  = recipe.outputQty  || 1;
+    yieldsEl.innerHTML = `Yields <strong>${outputQty}× ${outputName}</strong> per craft`;
+    recipeDetailEl.appendChild(yieldsEl);
+  }
+
   // Actions: qty stepper + Add to Queue button
   const actions = document.createElement('div');
   actions.className = 'detail-actions';
@@ -456,6 +468,12 @@ function renderTodoList() {
         </div>`;
     }).join('');
 
+    const outputQty   = recipe.outputQty  || 1;
+    const outputName  = recipe.outputItem || recipe.name;
+    const yieldsBadge = outputQty > 1 || recipe.outputItem
+      ? `<span class="yields-badge">→ ${outputQty}× ${outputName}</span>`
+      : '';
+
     itemEl.innerHTML = `
       <div class="todo-item-header">
         <div class="todo-item-icon-wrap">
@@ -464,7 +482,7 @@ function renderTodoList() {
           <span class="icon-fallback" style="display:none">${recipe.icon}</span>
         </div>
         <div class="todo-item-info">
-          <div class="todo-item-name">${recipe.name}</div>
+          <div class="todo-item-name">${recipe.name}${yieldsBadge}</div>
           <div class="todo-item-progress">${checkedCount}/${totalCount} ingredients</div>
         </div>
         <div class="todo-item-controls">
