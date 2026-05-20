@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="g1" cx="50%" cy="0%" r="70%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00b8d9" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#04101e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="100%" cy="100%" r="60%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1de9b6" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#04101e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#04101e"/>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+
+  <!-- Outer border -->
+  <rect x="36" y="36" width="1128" height="558" rx="14" fill="none" stroke="#1de9b6" stroke-opacity="0.14" stroke-width="1"/>
+
+  <!-- Logo icon -->
+  <text x="600" y="228" font-family="monospace" font-size="72" fill="#1de9b6" text-anchor="middle" filter="url(#glow)">◈</text>
+
+  <!-- Main title -->
+  <text x="600" y="316" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#e4f4f8" text-anchor="middle" letter-spacing="3">SN2 Blueprint Tracker</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="368" font-family="Arial, sans-serif" font-size="26" fill="#7ecfdf" text-anchor="middle" letter-spacing="2">Subnautica 2 Crafting Companion — Free, No Account Needed</text>
+
+  <!-- Feature pills -->
+  <rect x="248" y="416" width="192" height="38" rx="19" fill="#1de9b619" stroke="#1de9b6" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="344" y="440" font-family="Arial, sans-serif" font-size="17" fill="#1de9b6" text-anchor="middle">Browse Blueprints</text>
+
+  <rect x="504" y="416" width="192" height="38" rx="19" fill="#1de9b619" stroke="#1de9b6" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="600" y="440" font-family="Arial, sans-serif" font-size="17" fill="#1de9b6" text-anchor="middle">Track Ingredients</text>
+
+  <rect x="760" y="416" width="192" height="38" rx="19" fill="#1de9b619" stroke="#1de9b6" stroke-opacity="0.35" stroke-width="1"/>
+  <text x="856" y="440" font-family="Arial, sans-serif" font-size="17" fill="#1de9b6" text-anchor="middle">Mark as Crafted</text>
+
+  <!-- URL -->
+  <text x="600" y="546" font-family="monospace" font-size="19" fill="#3a6878" text-anchor="middle" letter-spacing="1">sn2.tylerawak.net</text>
+</svg>
