@@ -178,10 +178,16 @@ function craftItem(item, recipe) {
   state.inventory[outputName] = (state.inventory[outputName] || 0) + item.qty * outputQty;
 }
 
-// ── Navigate to a recipe: switch station/category and select it ──
+// ── Navigate to a recipe: switch station/category only when needed ──
 function selectRecipe(recipe) {
-  state.activeStation    = recipe.station;
-  state.activeCategory   = 'All';
+  if (state.activeStation !== recipe.station) {
+    // Switching stations — reset category so the recipe is visible
+    state.activeStation  = recipe.station;
+    state.activeCategory = 'All';
+  } else if (state.activeCategory !== 'All' && state.activeCategory !== recipe.category) {
+    // Same station but recipe isn't in the current category filter
+    state.activeCategory = recipe.category;
+  }
   state.selectedRecipeId = recipe.id;
   detailQty = 1;
   renderStationTabs();
