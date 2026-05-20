@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SN2 Blueprint Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+
+    <header class="app-header">
+      <div class="header-logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">SN2 Blueprint Tracker</span>
+      </div>
+      <div class="header-actions">
+        <a href="help.html" target="_blank" class="help-link">? Help</a>
+      </div>
+      <div class="header-stats">
+        <div class="stat">
+          <span class="stat-value" id="total-queued">0</span>
+          <span class="stat-label">Queued</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value" id="total-ready">0</span>
+          <span class="stat-label">Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-body">
+
+      <!-- Column 1: Blueprint Icon Browser -->
+      <section class="panel recipe-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <span class="panel-icon">⬡</span>
+            Blueprints
+          </h2>
+          <div class="search-wrap">
+            <input type="text" id="recipe-search" class="search-input" placeholder="Search all blueprints…">
+            <span class="search-icon">⌕</span>
+          </div>
+        </div>
+        <div class="station-tabs" id="station-tabs"></div>
+        <div class="category-tabs" id="category-tabs"></div>
+        <div class="recipe-icon-col" id="recipe-grid"></div>
+      </section>
+
+      <!-- Column 2: Blueprint Detail -->
+      <section class="panel detail-panel">
+        <div class="recipe-detail" id="recipe-detail">
+          <div class="detail-empty-state">
+            <div class="empty-icon">⬡</div>
+            <p>Select a blueprint.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Column 3: Build Queue / Inventory -->
+      <section class="panel todo-panel">
+        <div class="panel-header">
+          <div class="right-tab-bar" id="right-tab-bar">
+            <button class="right-tab active" data-tab="queue">◉ Build Queue</button>
+            <button class="right-tab" data-tab="inventory">◎ Inventory</button>
+          </div>
+          <div class="header-btn-group">
+            <button class="header-btn" id="mark-all-crafted-btn" style="display:none">Craft All</button>
+            <button class="header-btn" id="toggle-collapse-btn" style="display:none">Collapse All</button>
+            <button class="header-btn" id="clear-completed-btn">Clear Crafted</button>
+          </div>
+        </div>
+
+        <!-- Queue view -->
+        <div class="todo-scroll" id="todo-scroll">
+          <div class="todo-list" id="todo-list">
+            <div class="empty-state" id="empty-state">
+              <div class="empty-icon">⬡</div>
+              <p>No blueprints queued.</p>
+              <p class="empty-sub">Click any item to add it to the queue.</p>
+            </div>
+          </div>
+
+          <div class="resource-summary" id="resource-summary" style="display:none">
+            <div class="summary-header">
+              <span class="summary-icon">◎</span>
+              Total Resources Required
+            </div>
+            <div class="resource-list" id="resource-list"></div>
+          </div>
+        </div>
+
+        <!-- Inventory view -->
+        <div class="inventory-view" id="inventory-view" style="display:none"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
