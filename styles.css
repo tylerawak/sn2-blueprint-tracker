@@ -572,3 +572,62 @@ body {
   line-height: 1; padding: 1px 5px; transition: all 0.14s;
 }
 .rr-add-btn:hover { background: var(--teal-dim); border-color: var(--border-hi); }
+
+/* ── How to Use section ───────────────────────────────────────────────────── */
+.how-to-use {
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(29,233,182,.1);
+  padding: 3rem 1.5rem;
+}
+.htu-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  color: rgba(255,255,255,.7);
+  line-height: 1.8;
+  font-size: .95rem;
+}
+.htu-inner h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 1.2rem;
+}
+.htu-inner h3 {
+  font-size: .95rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.85);
+  margin: 1.5rem 0 .5rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.htu-inner ol,
+.htu-inner ul {
+  padding-left: 1.4rem;
+  margin-bottom: .8rem;
+}
+.htu-inner li { margin-bottom: .5rem; }
+.htu-inner strong { color: var(--text-hi); }
+.htu-links {
+  margin-top: 1.5rem;
+  font-size: .85rem;
+  color: rgba(255,255,255,.4);
+}
+.htu-links a {
+  color: var(--teal);
+  text-decoration: none;
+}
+.htu-links a:hover { color: #fff; }
+
+/* ── App footer ───────────────────────────────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  padding: 1.2rem 1rem;
+  font-size: .8rem;
+  color: rgba(255,255,255,.25);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.app-footer a {
+  color: rgba(255,255,255,.35);
+  text-decoration: none;
+}
+.app-footer a:hover { color: rgba(255,255,255,.7); }
