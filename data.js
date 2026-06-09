@@ -14,12 +14,12 @@ const STATIONS = [
   {
     id: 'Processor',
     short: 'Processor',
-    categories: ['Ingots', 'Refinement', 'Biofuel'],
+    categories: ['Ingots', 'Refinement', 'Biofuel', 'Alternates'],
   },
   {
     id: 'Habitat Builder',
     short: 'Habitat Builder',
-    categories: ['Structures', 'Interior', 'Exterior', 'Utility'],
+    categories: ['Structures', 'Interior', 'Exterior', 'Utility', 'Cultivation'],
   },
   {
     id: 'Vehicle Fabricator',
@@ -541,6 +541,22 @@ const RECIPES = [
     ingredients: [{ item: 'Pneuma', qty: 1 }],
   },
   {
+    id: 'cooked_electric_geordie',
+    name: 'Cooked Electric Geordie',
+    station: 'Fabricator', category: 'Cooked Food',
+    iconUrl: img('Cooked_Electric_Geordie.png'), icon: '⚡',
+    description: 'Cooked Electric Geordie. Restores food.',
+    ingredients: [{ item: 'Electric Geordie', qty: 1 }],
+  },
+  {
+    id: 'cooked_black_hoverthorn',
+    name: 'Cooked Black Hoverthorn',
+    station: 'Fabricator', category: 'Cooked Food',
+    iconUrl: img('Cooked_Black_Hoverthorn.png'), icon: '🦑',
+    description: 'Cooked Black Hoverthorn. Restores food.',
+    ingredients: [{ item: 'Black Hoverthorn', qty: 1 }],
+  },
+  {
     id: 'nutrient_block',
     name: 'Nutrient Block',
     station: 'Fabricator', category: 'Cooked Food',
@@ -603,7 +619,7 @@ const RECIPES = [
     station: 'Fabricator', category: 'Consumables',
     iconUrl: img('Basic_First_Aid_Kit.png'), icon: '🩹',
     description: 'Emergency fiber bandages. Restores health.',
-    ingredients: [{ item: 'Fiber', qty: 1 }],
+    ingredients: [{ item: 'Fiber', qty: 2 }],
   },
   {
     id: 'enhanced_first_aid_kit',
@@ -673,6 +689,14 @@ const RECIPES = [
     ingredients: [{ item: 'Silver', qty: 2 }],
   },
   {
+    id: 'germanium_ingot_lead',
+    name: 'Germanium Ingot',
+    station: 'Processor', category: 'Ingots',
+    iconUrl: img('Germanium_Ingot.png'), icon: '🔷',
+    description: 'Refined germanium, used in high-tech power storage. (Alt: Lead)',
+    ingredients: [{ item: 'Lead', qty: 2 }],
+  },
+  {
     id: 'plasteel_ingot',
     name: 'Plasteel Ingot',
     station: 'Processor', category: 'Ingots',
@@ -715,6 +739,17 @@ const RECIPES = [
     description: 'Highly corrosive acid refined from Necrolei Cysts.',
     ingredients: [{ item: 'Necrolei Cyst', qty: 2 }],
   },
+  {
+    id: 'strong_acid_alt',
+    name: 'Strong Acid',
+    station: 'Processor', category: 'Refinement',
+    iconUrl: img('Strong_Acid.png'), icon: '⚗️',
+    description: 'Highly corrosive acid synthesized from Sulfur and Gold. (Alt recipe)',
+    ingredients: [
+      { item: 'Sulfur', qty: 1 },
+      { item: 'Gold', qty: 1 },
+    ],
+  },
 
   // ═══════════════════════════════════════════════
   //  PROCESSOR › BIOFUEL
@@ -726,6 +761,42 @@ const RECIPES = [
     iconUrl: img('Biofuel_Block.png'), icon: '🟩',
     description: 'Compressed organic material used as fuel and in food synthesis.',
     ingredients: [{ item: 'Fibrous Pulp', qty: 5 }],
+  },
+  {
+    id: 'biofuel_block_pent',
+    name: 'Biofuel Block',
+    station: 'Processor', category: 'Biofuel',
+    iconUrl: img('Biofuel_Block.png'), icon: '🟩',
+    description: 'Compressed organic material used as fuel and in food synthesis. (Alt: Pent)',
+    ingredients: [{ item: 'Pent', qty: 3 }],
+  },
+  {
+    id: 'biofuel_block_crab',
+    name: 'Biofuel Block',
+    station: 'Processor', category: 'Biofuel',
+    iconUrl: img('Biofuel_Block.png'), icon: '🟩',
+    description: 'Compressed organic material used as fuel and in food synthesis. (Alt: Crab Feces)',
+    ingredients: [{ item: 'Crab Feces', qty: 2 }],
+  },
+
+  // ═══════════════════════════════════════════════
+  //  PROCESSOR › ALTERNATES
+  // ═══════════════════════════════════════════════
+  {
+    id: 'glass_salt',
+    name: 'Glass',
+    station: 'Processor', category: 'Alternates',
+    iconUrl: img('Glass.png'), icon: '🪟',
+    description: 'Transparent silicon compound synthesized from Salt. (Alt recipe)',
+    ingredients: [{ item: 'Salt', qty: 2 }],
+  },
+  {
+    id: 'grease_halfmoon',
+    name: 'Grease',
+    station: 'Processor', category: 'Alternates',
+    iconUrl: img('Grease.png'), icon: '🫙',
+    description: 'Mechanical lubricant rendered from Halfmoon. (Alt recipe)',
+    ingredients: [{ item: 'Halfmoon', qty: 2 }],
   },
 
   // ═══════════════════════════════════════════════
@@ -806,7 +877,31 @@ const RECIPES = [
     station: 'Habitat Builder', category: 'Structures',
     iconUrl: img('Moonpool.png'), icon: '🌊',
     description: 'Vehicle docking bay with underwater access.',
-    ingredients: [{ item: 'Titanium', qty: 5 }],
+    ingredients: [{ item: 'Titanium', qty: 4 }],
+  },
+  {
+    id: 'interior_wall',
+    name: 'Interior Wall',
+    station: 'Habitat Builder', category: 'Structures',
+    iconUrl: img('Interior_Wall.png'), icon: '🧱',
+    description: 'Internal wall panel for dividing base compartments.',
+    ingredients: [{ item: 'Titanium', qty: 1 }],
+  },
+  {
+    id: 'interior_arch',
+    name: 'Interior Arch',
+    station: 'Habitat Builder', category: 'Structures',
+    iconUrl: img('Interior_Arch.png'), icon: '🏛️',
+    description: 'Archway connector between base compartments.',
+    ingredients: [{ item: 'Titanium', qty: 1 }],
+  },
+  {
+    id: 'ladder',
+    name: 'Ladder',
+    station: 'Habitat Builder', category: 'Structures',
+    iconUrl: img('Ladder.png'), icon: '🪜',
+    description: 'Vertical access ladder between base levels.',
+    ingredients: [{ item: 'Titanium', qty: 2 }],
   },
 
   // ═══════════════════════════════════════════════
@@ -922,6 +1017,140 @@ const RECIPES = [
     description: 'Grows alien flora for food and crafting materials.',
     ingredients: [{ item: 'Titanium', qty: 1 }],
   },
+  {
+    id: 'tailing_chest',
+    name: 'Tailing Chest',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Tailing_Chest.png'), icon: '🗃️',
+    description: 'Compact storage chest for base interiors.',
+    ingredients: [{ item: 'Titanium', qty: 3 }],
+  },
+  {
+    id: 'wall_rack',
+    name: 'Wall Rack',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Wall_Rack.png'), icon: '🗄️',
+    description: 'Wall-mounted open rack for storing equipment.',
+    ingredients: [
+      { item: 'Titanium', qty: 1 },
+      { item: 'Copper', qty: 1 },
+    ],
+  },
+  {
+    id: 'small_ceiling_light',
+    name: 'Small Ceiling Light',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Small_Ceiling_Light.png'), icon: '💡',
+    description: 'Compact ceiling-mounted light for base interiors.',
+    ingredients: [
+      { item: 'Titanium', qty: 1 },
+      { item: 'Copper', qty: 1 },
+    ],
+  },
+  {
+    id: 'rectangular_ceiling_light',
+    name: 'Rectangular Ceiling Light',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Rectangular_Ceiling_Light.png'), icon: '🔆',
+    description: 'Large rectangular ceiling light for wider coverage.',
+    ingredients: [
+      { item: 'Titanium', qty: 2 },
+      { item: 'Copper', qty: 1 },
+    ],
+  },
+  {
+    id: 'wall_light_small',
+    name: 'Wall Light Small',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Wall_Light_Small.png'), icon: '🕯️',
+    description: 'Small wall-mounted interior light.',
+    ingredients: [
+      { item: 'Titanium', qty: 1 },
+      { item: 'Copper', qty: 1 },
+    ],
+  },
+  {
+    id: 'wall_light_large',
+    name: 'Wall Light Large',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Wall_Light_Large.png'), icon: '🔦',
+    description: 'Large wall-mounted interior light.',
+    ingredients: [
+      { item: 'Titanium', qty: 2 },
+      { item: 'Copper', qty: 1 },
+    ],
+  },
+  {
+    id: 'axum_wall_lamp',
+    name: 'Axum Wall Lamp',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Axum_Wall_Lamp.png'), icon: '🌟',
+    description: 'Decorative alien-style wall lamp using Celestine crystal light.',
+    ingredients: [
+      { item: 'Celestine', qty: 1 },
+      { item: 'Titanium', qty: 1 },
+    ],
+  },
+  {
+    id: 'battery_terminal',
+    name: 'Battery Terminal',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Battery_Terminal.png'), icon: '🔋',
+    description: 'Charges and swaps Basic Batteries from your inventory.',
+    ingredients: [
+      { item: 'Titanium', qty: 2 },
+      { item: 'Quartz', qty: 2 },
+      { item: 'Copper Wire', qty: 1 },
+    ],
+  },
+  {
+    id: 'power_cell_terminal',
+    name: 'Power Cell Terminal',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Power_Cell_Terminal.png'), icon: '🔌',
+    description: 'Charges and swaps Power Cells from your inventory.',
+    ingredients: [
+      { item: 'Titanium', qty: 3 },
+      { item: 'Copper', qty: 3 },
+      { item: 'Wiring Kit', qty: 1 },
+    ],
+  },
+  {
+    id: 'biobed',
+    name: 'Biobed',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Biobed.png'), icon: '🛏️',
+    description: 'Restorative bed that regenerates health over time.',
+    ingredients: [
+      { item: 'Titanium', qty: 3 },
+      { item: 'Glass', qty: 1 },
+      { item: 'Copper Wire', qty: 1 },
+    ],
+  },
+  {
+    id: 'noa_terminal',
+    name: 'NoA Terminal',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('NoA_Terminal.png'), icon: '📟',
+    description: 'Network of Alterra terminal for accessing base systems and logs.',
+    ingredients: [
+      { item: 'Titanium', qty: 3 },
+      { item: 'Copper Wire', qty: 1 },
+      { item: 'Glass', qty: 1 },
+    ],
+  },
+  {
+    id: 'time_of_day_display',
+    name: 'Time of Day Display',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Time_of_Day_Display.png'), icon: '🕐',
+    description: 'Wall-mounted display showing current surface time of day.',
+    ingredients: [
+      { item: 'Titanium', qty: 1 },
+      { item: 'Enameled Glass', qty: 1 },
+      { item: 'Copper', qty: 1 },
+    ],
+  },
 
   // ═══════════════════════════════════════════════
   //  HABITAT BUILDER › EXTERIOR
@@ -981,6 +1210,28 @@ const RECIPES = [
     ingredients: [
       { item: 'Copper', qty: 1 },
       { item: 'Titanium', qty: 1 },
+    ],
+  },
+  {
+    id: 'exterior_wall_light',
+    name: 'Exterior Wall Light',
+    station: 'Habitat Builder', category: 'Exterior',
+    iconUrl: img('Exterior_Wall_Light.png'), icon: '🔦',
+    description: 'Waterproof wall-mounted light for base exteriors.',
+    ingredients: [
+      { item: 'Titanium', qty: 1 },
+      { item: 'Copper', qty: 1 },
+    ],
+  },
+  {
+    id: 'spotlight',
+    name: 'Spotlight',
+    station: 'Habitat Builder', category: 'Exterior',
+    iconUrl: img('Spotlight.png'), icon: '🔆',
+    description: 'High-intensity directional spotlight for illuminating large areas.',
+    ingredients: [
+      { item: 'Titanium', qty: 1 },
+      { item: 'Copper', qty: 2 },
     ],
   },
 
@@ -1050,6 +1301,32 @@ const RECIPES = [
       { item: 'Quartz', qty: 2 },
     ],
   },
+  {
+    id: 'work_light',
+    name: 'Work Light',
+    station: 'Habitat Builder', category: 'Utility',
+    iconUrl: img('Work_Light.png'), icon: '💡',
+    description: 'Portable work light that can be placed anywhere underwater.',
+    ingredients: [
+      { item: 'Titanium', qty: 3 },
+      { item: 'Quartz', qty: 2 },
+    ],
+  },
+
+  // ═══════════════════════════════════════════════
+  //  HABITAT BUILDER › CULTIVATION
+  // ═══════════════════════════════════════════════
+  {
+    id: 'metal_farm',
+    name: 'Metal Farm',
+    station: 'Habitat Builder', category: 'Cultivation',
+    iconUrl: img('Metal_Farm.png'), icon: '⛏️',
+    description: 'Alien cultivation structure that passively grows metallic ore deposits.',
+    ingredients: [
+      { item: 'Mangalloy Ingot', qty: 1 },
+      { item: 'Axum Bacterial Culture', qty: 1 },
+    ],
+  },
 
   // ═══════════════════════════════════════════════
   //  VEHICLE FABRICATOR › VEHICLES
@@ -1062,7 +1339,8 @@ const RECIPES = [
     description: 'Compact personal submersible. Fast, agile, and highly moddable.',
     ingredients: [
       { item: 'Titanium Ingot', qty: 2 },
-      { item: 'Glass', qty: 1 },
+      { item: 'Copper Ingot', qty: 1 },
+      { item: 'Glass', qty: 2 },
       { item: 'System Chip', qty: 1 },
       { item: 'Power Cell', qty: 1 },
     ],
@@ -1232,4 +1510,9 @@ const MATERIALS = {
   'Deepwing Egg Clump': { iconUrl: img('Deepwing_Egg_Clump.png'),  icon: '🥚' },
   'Coral Shavings':     { iconUrl: img('Coral_Shavings.png'),      icon: '🪸' },
   'Medical Gel Sac':    { iconUrl: img('Medical_Gel_Sac.png'),     icon: '💊' },
+  'Electric Geordie':   { iconUrl: img('Electric_Geordie.png'),    icon: '⚡' },
+  'Black Hoverthorn':   { iconUrl: img('Black_Hoverthorn.png'),    icon: '🦑' },
+  'Pent':               { iconUrl: img('Pent.png'),                icon: '🌿' },
+  'Crab Feces':         { iconUrl: img('Crab_Feces.png'),          icon: '💩' },
+  'Axum Bacterial Culture': { iconUrl: img('Axum_Bacterial_Culture.png'), icon: '🧫' },
 };
