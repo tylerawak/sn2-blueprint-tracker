@@ -55,6 +55,68 @@ function getItemIcon(name) {
   return RECIPES.find(r => r.name === name) || MATERIALS[name] || null;
 }
 
+// Returns all recipes that produce a given item name (may be >1 for alternates).
+function getRecipesByName(name) {
+  return RECIPES.filter(r => r.name === name);
+}
+
+// Shows a modal letting the user choose which recipe variant to add to the queue.
+function showRecipePickerModal(itemName, qty) {
+  const existing = document.getElementById('rp-backdrop');
+  if (existing) existing.remove();
+
+  const recipes = getRecipesByName(itemName);
+  if (recipes.length === 0) return;
+  if (recipes.length === 1) { addToQueue(recipes[0], qty); return; }
+
+  const backdrop = document.createElement('div');
+  backdrop.id = 'rp-backdrop';
+  backdrop.className = 'rp-backdrop';
+  backdrop.addEventListener('click', () => backdrop.remove());
+
+  const modal = document.createElement('div');
+  modal.className = 'rp-modal';
+  modal.addEventListener('click', e => e.stopPropagation());
+
+  const titleEl = document.createElement('div');
+  titleEl.className = 'rp-title';
+  titleEl.textContent = `Choose recipe — ${itemName} ×${qty}`;
+  modal.appendChild(titleEl);
+
+  recipes.forEach(recipe => {
+    const btn = document.createElement('button');
+    btn.className = 'rp-option';
+
+    const iconSrc = recipe.iconUrl;
+    const ingText = recipe.ingredients.map(i => `${i.qty}× ${i.item}`).join('  ·  ');
+
+    btn.innerHTML = `
+      <div class="rp-option-icon-row">
+        <img class="rp-option-icon" src="${iconSrc}" alt=""
+          onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+        <span class="rp-option-icon-fb" style="display:none">${recipe.icon}</span>
+        <span class="rp-option-name">${recipe.name}</span>
+      </div>
+      <div class="rp-ing-list">${ingText}</div>`;
+
+    btn.addEventListener('click', () => {
+      addToQueue(recipe, qty);
+      backdrop.remove();
+    });
+
+    modal.appendChild(btn);
+  });
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'rp-close';
+  closeBtn.textContent = 'Cancel';
+  closeBtn.addEventListener('click', () => backdrop.remove());
+  modal.appendChild(closeBtn);
+
+  backdrop.appendChild(modal);
+  document.body.appendChild(backdrop);
+}
+
 // ── Right-panel tab switching ──
 function switchRightTab(tab) {
   state.activeRightTab = tab;
@@ -715,8 +777,12 @@ function renderResourceSummary() {
           addBtn.textContent = '+';
           addBtn.addEventListener('click', e => {
             e.stopPropagation();
-            // Queue exactly as many as still needed (accounting for inventory)
-            addToQueue(craftable, left);
+            const allVariants = getRecipesByName(itemName);
+            if (allVariants.length > 1) {
+              showRecipePickerModal(itemName, left);
+            } else {
+              addToQueue(craftable, left);
+            }
           });
           leftCell.appendChild(addBtn);
         }

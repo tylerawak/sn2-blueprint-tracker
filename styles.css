@@ -631,3 +631,94 @@ body {
   text-decoration: none;
 }
 .app-footer a:hover { color: rgba(255,255,255,.7); }
+
+/* ── Recipe Picker Modal ── */
+.rp-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 8, 18, 0.82);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.rp-modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-md);
+  border-radius: var(--r-lg);
+  padding: 20px;
+  min-width: 280px;
+  max-width: 440px;
+  width: 90%;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.8), 0 0 30px rgba(29,233,182,0.08);
+}
+.rp-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-lo);
+}
+.rp-option {
+  display: block;
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-lo);
+  border-radius: var(--r);
+  padding: 11px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+.rp-option:hover {
+  border-color: var(--teal);
+  background: var(--bg-card-hover);
+}
+.rp-option-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+.rp-option-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+.rp-option-icon-fb {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.rp-option-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-hi);
+}
+.rp-ing-list {
+  font-size: 0.75rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+  padding-left: 30px;
+}
+.rp-close {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  background: transparent;
+  border: 1px solid var(--border-lo);
+  border-radius: var(--r);
+  color: var(--text-lo);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.rp-close:hover {
+  border-color: var(--border-md);
+  color: var(--text-mid);
+}
