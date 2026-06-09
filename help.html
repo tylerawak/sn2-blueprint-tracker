@@ -35,9 +35,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-deep:    #04101e;
-      --bg-card:    rgba(8, 24, 46, 0.92);
-      --teal:       #1de9b6;
+      --bg-deep:       #04101e;
+      --bg-card:       rgba(8, 24, 46, 0.92);
+      --bg-card-hover: rgba(12, 34, 62, 0.96);
+      --bg-input:      rgba(4, 14, 28, 0.88);
+      --teal:          #1de9b6;
       --teal-dim:   rgba(29, 233, 182, 0.12);
       --cyan:       #29b6f6;
       --text-hi:    #e4f4f8;
@@ -362,6 +364,51 @@
       display: inline-block; background: rgba(255,255,255,0.06); border: 1px solid var(--border-md);
       border-radius: 4px; font-family: var(--mono); font-size: 0.68rem; padding: 1px 6px; color: var(--text-hi);
     }
+
+    /* ── Version note ── */
+    .intro-version {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-lo);
+      letter-spacing: 0.07em;
+      margin-top: 10px;
+    }
+
+    /* ── Mock: recipe picker ── */
+    .mock-picker {
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .mock-picker-title {
+      font-size: 0.58rem; font-weight: 700; color: var(--teal);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 10px; padding-bottom: 7px;
+      border-bottom: 1px solid var(--border-lo);
+    }
+    .mock-picker-opt {
+      background: var(--bg-input); border: 1px solid var(--border-lo);
+      border-radius: 5px; padding: 8px 10px; margin-bottom: 6px;
+    }
+    .mock-picker-opt-hover { border-color: var(--teal); background: var(--bg-card-hover); }
+    .mock-picker-opt-header { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+    .mock-picker-opt-icon { width: 18px; height: 18px; object-fit: contain; }
+    .mock-picker-opt-name { font-size: 0.72rem; font-weight: 700; color: var(--text-hi); }
+    .mock-picker-ing-row { display: flex; flex-wrap: wrap; gap: 4px; padding-left: 24px; }
+    .mock-picker-ing-chip {
+      display: inline-flex; align-items: center; gap: 3px;
+      background: rgba(29,233,182,0.05); border: 1px solid var(--border-lo);
+      border-radius: 3px; padding: 1px 5px 1px 2px;
+    }
+    .mock-picker-ing-icon { width: 14px; height: 14px; object-fit: contain; }
+    .mock-picker-ing-qty { font-size: 0.65rem; font-weight: 700; color: var(--teal); }
+    .mock-picker-ing-name { font-size: 0.65rem; color: var(--text-mid); }
+    .mock-picker-cancel {
+      text-align: center; padding: 5px; margin-top: 6px;
+      font-size: 0.6rem; color: var(--text-lo); letter-spacing: 0.05em;
+      border: 1px solid var(--border-lo); border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -379,6 +426,7 @@
     <div class="intro">
       <h1>How to Use the Blueprint Tracker</h1>
       <p>Plan your crafting in Subnautica 2. Queue blueprints, track your ingredients, and mark items as crafted as you go.</p>
+      <p class="intro-version">◈ Subnautica 2 Early Access · Blueprints updated June 2026</p>
     </div>
 
     <!-- Blueprint Browser -->
@@ -603,7 +651,7 @@
             <div class="card-icon">+</div>
             <div>
               <div class="card-title">Queue Shortfalls</div>
-              <div class="card-desc">If a material has a craftable recipe, a <strong>+</strong> button appears. Clicking it queues exactly the shortfall quantity of that item.</div>
+              <div class="card-desc">If a material has a craftable recipe, a <strong>+</strong> button appears. Clicking it queues exactly the shortfall quantity. If the item has <strong>multiple recipe variants</strong>, a picker pops up — choose the one you want and only that variant is queued.</div>
             </div>
           </div>
         </div>
@@ -644,6 +692,68 @@
                 <div class="mock-rr-left"><span class="mock-rr-left-num">1</span></div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternate Recipes -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">⇌</div>
+        <div>
+          <div class="section-title">Alternate Recipes</div>
+          <div class="section-subtitle">Some items can be crafted from different ingredients</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">⇌</div>
+            <div>
+              <div class="card-title">Multiple Variants in the Browser</div>
+              <div class="card-desc">Items with alternate recipes appear as separate entries in the blueprint browser — same name, different ingredients. For example, <strong>Germanium Ingot</strong> is listed twice under Processor › Ingots: once using 2× Silver, once using 2× Lead. Browse both to compare before queuing.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">◎</div>
+            <div>
+              <div class="card-title">Recipe Picker</div>
+              <div class="card-desc">When clicking <strong>+</strong> in the Total Resources panel for an item with multiple recipes, a picker pops up. Each option shows the item icon and ingredient chips with quantities. Click the variant you want to queue, or click <strong>Cancel</strong> (or outside the modal) to dismiss.</div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-box">
+          <div class="preview-label">Preview — Recipe Picker</div>
+          <div class="mock-picker">
+            <div class="mock-picker-title">Choose recipe — Germanium Ingot ×1</div>
+            <div class="mock-picker-opt">
+              <div class="mock-picker-opt-header">
+                <img class="mock-picker-opt-icon" data-icon="Germanium_Ingot.png" alt="">
+                <span class="mock-picker-opt-name">Germanium Ingot</span>
+              </div>
+              <div class="mock-picker-ing-row">
+                <span class="mock-picker-ing-chip">
+                  <img class="mock-picker-ing-icon" data-icon="Silver.png" alt="Silver">
+                  <span class="mock-picker-ing-qty">2×</span>
+                  <span class="mock-picker-ing-name">Silver</span>
+                </span>
+              </div>
+            </div>
+            <div class="mock-picker-opt mock-picker-opt-hover">
+              <div class="mock-picker-opt-header">
+                <img class="mock-picker-opt-icon" data-icon="Germanium_Ingot.png" alt="">
+                <span class="mock-picker-opt-name">Germanium Ingot</span>
+              </div>
+              <div class="mock-picker-ing-row">
+                <span class="mock-picker-ing-chip">
+                  <img class="mock-picker-ing-icon" data-icon="Lead.png" alt="Lead">
+                  <span class="mock-picker-ing-qty">2×</span>
+                  <span class="mock-picker-ing-name">Lead</span>
+                </span>
+              </div>
+            </div>
+            <div class="mock-picker-cancel">Cancel</div>
           </div>
         </div>
       </div>
@@ -739,7 +849,7 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <div class="step-title">Queue sub-components if needed</div>
-            <div class="step-desc">Check the <strong>Total Resources Required</strong> card. If a craftable material is missing, click its <strong>+</strong> button to queue it for exactly the shortfall amount.</div>
+            <div class="step-desc">Check the <strong>Total Resources Required</strong> card. If a craftable material is missing, click its <strong>+</strong> button to queue it. If the item has multiple recipe variants, a <strong>picker</strong> will pop up so you can choose which one to build.</div>
           </div>
         </div>
         <div class="step">
@@ -796,6 +906,10 @@
         <div class="tip">
           <span class="tip-bullet">◈</span>
           <span class="tip-text">Press <kbd>Esc</kbd> in the search bar to instantly clear the search and return to the current station view.</span>
+        </div>
+        <div class="tip">
+          <span class="tip-bullet">◈</span>
+          <span class="tip-text"><strong>Alternate recipes</strong> (Germanium Ingot, Strong Acid, Biofuel Block, and others) appear multiple times in the blueprint browser — same name, different ingredients. Pick the entry that matches what you have available, or let the recipe picker guide you from the Total Resources panel.</span>
         </div>
       </div>
     </section>
