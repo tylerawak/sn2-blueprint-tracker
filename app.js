@@ -88,7 +88,15 @@ function showRecipePickerModal(itemName, qty) {
     btn.className = 'rp-option';
 
     const iconSrc = recipe.iconUrl;
-    const ingText = recipe.ingredients.map(i => `${i.qty}× ${i.item}`).join('  ·  ');
+    const ingHtml = recipe.ingredients.map(ing => {
+      const icon = getItemIcon(ing.item);
+      const imgHtml = icon
+        ? `<img class="rp-ing-icon" src="${icon.iconUrl}" alt="${ing.item}"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+           <span class="rp-ing-icon-fb" style="display:none">${icon.icon || '?'}</span>`
+        : `<span class="rp-ing-icon-fb">?</span>`;
+      return `<span class="rp-ing-item">${imgHtml}<span class="rp-ing-qty">${ing.qty}×</span><span class="rp-ing-name">${ing.item}</span></span>`;
+    }).join('');
 
     btn.innerHTML = `
       <div class="rp-option-icon-row">
@@ -97,7 +105,7 @@ function showRecipePickerModal(itemName, qty) {
         <span class="rp-option-icon-fb" style="display:none">${recipe.icon}</span>
         <span class="rp-option-name">${recipe.name}</span>
       </div>
-      <div class="rp-ing-list">${ingText}</div>`;
+      <div class="rp-ing-list">${ingHtml}</div>`;
 
     btn.addEventListener('click', () => {
       addToQueue(recipe, qty);

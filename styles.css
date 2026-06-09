@@ -700,10 +700,40 @@ body {
   color: var(--text-hi);
 }
 .rp-ing-list {
-  font-size: 0.75rem;
-  color: var(--text-mid);
-  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
   padding-left: 30px;
+  margin-top: 5px;
+}
+.rp-ing-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(29,233,182,0.05);
+  border: 1px solid var(--border-lo);
+  border-radius: 4px;
+  padding: 2px 7px 2px 3px;
+}
+.rp-ing-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.rp-ing-icon-fb {
+  font-size: 0.85rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.rp-ing-qty {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+.rp-ing-name {
+  font-size: 0.72rem;
+  color: var(--text-mid);
 }
 .rp-close {
   display: block;
