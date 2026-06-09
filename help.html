@@ -919,14 +919,18 @@
   <script>
     // Populate all mock images with actual SN2 wiki icon URLs
     const WIKI = 'https://wiki.subnautica.com/sn2/images/thumb/';
+    // Classes that have explicit CSS sizes — don't override with 100%
+    const SIZED = ['mock-picker-opt-icon', 'mock-picker-ing-icon'];
     document.querySelectorAll('[data-icon]').forEach(img => {
       const file = img.dataset.icon;
       img.src = `${WIKI}${file}/64px-${file}`;
-      img.style.width = '100%';
-      img.style.height = '100%';
       img.style.objectFit = 'contain';
       img.style.imageRendering = 'pixelated';
       img.style.display = 'block';
+      if (!SIZED.some(c => img.classList.contains(c))) {
+        img.style.width  = '100%';
+        img.style.height = '100%';
+      }
       img.onerror = () => { img.style.display = 'none'; };
     });
   </script>
