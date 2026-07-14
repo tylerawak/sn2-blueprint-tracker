@@ -1018,6 +1018,14 @@ const RECIPES = [
     ingredients: [{ item: 'Titanium', qty: 1 }],
   },
   {
+    id: 'storage_cache',
+    name: 'Storage Cache',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('Storage_Cache.png'), icon: '📦',
+    description: 'Medium personal storage container. Its contents are NOT shared with nearby crafting stations.',
+    ingredients: [{ item: 'Titanium', qty: 1 }],
+  },
+  {
     id: 'tailing_chest',
     name: 'Tailing Chest',
     station: 'Habitat Builder', category: 'Interior',
@@ -1149,6 +1157,17 @@ const RECIPES = [
       { item: 'Titanium', qty: 1 },
       { item: 'Enameled Glass', qty: 1 },
       { item: 'Copper', qty: 1 },
+    ],
+  },
+  {
+    id: 'world_tree_relic',
+    name: 'World Tree Relic',
+    station: 'Habitat Builder', category: 'Interior',
+    iconUrl: img('World_Tree_Relic.png'), icon: '🌳',
+    description: 'Decorative Axum-style relic of the past. Added in Early Access 1.1.',
+    ingredients: [
+      { item: 'Glass', qty: 1 },
+      { item: 'Copper', qty: 2 },
     ],
   },
 
